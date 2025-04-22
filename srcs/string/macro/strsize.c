@@ -6,13 +6,13 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 20:26:01 by ethebaul          #+#    #+#             */
-/*   Updated: 2025/04/21 20:26:58 by ethebaul         ###   ########.fr       */
+/*   Updated: 2025/04/22 18:51:43 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libc.h"
 
-int	strsize(void *str)
+int	ft_strsize(void *str)
 {
 	return (((t_string *)str)->size);
 }

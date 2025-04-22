@@ -6,13 +6,13 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 17:23:00 by ethebaul          #+#    #+#             */
-/*   Updated: 2025/04/21 18:27:02 by ethebaul         ###   ########.fr       */
+/*   Updated: 2025/04/22 18:51:47 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libc.h"
 
-int	strtol(t_string *str, long *ret)
+int	ft_strtol(t_string *str, long *ret)
 {
 	int		flag;
 	uint	i;

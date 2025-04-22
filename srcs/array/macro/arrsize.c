@@ -6,13 +6,13 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 20:27:56 by ethebaul          #+#    #+#             */
-/*   Updated: 2025/04/21 20:28:43 by ethebaul         ###   ########.fr       */
+/*   Updated: 2025/04/22 18:53:46 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libc.h"
 
-int	arrsize(void *array)
+int	ft_arrsize(void *array)
 {
 	return (((t_array *)array)->size);
 }

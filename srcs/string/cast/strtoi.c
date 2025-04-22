@@ -6,13 +6,13 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 17:23:00 by ethebaul          #+#    #+#             */
-/*   Updated: 2025/04/21 18:31:17 by ethebaul         ###   ########.fr       */
+/*   Updated: 2025/04/22 18:51:49 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libc.h"
 
-int	strtoi(t_string *str, int *ret)
+int	ft_strtoi(t_string *str, int *ret)
 {
 	int		flag;
 	uint	i;

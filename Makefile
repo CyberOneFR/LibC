@@ -6,14 +6,22 @@
 #    By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/20 17:15:05 by ethebaul          #+#    #+#              #
-#    Updated: 2025/04/22 17:48:01 by ethebaul         ###   ########.fr        #
+#    Updated: 2025/04/22 18:51:09 by ethebaul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 BUILDIR	=	./build/
 HEADERS	=	./headers/
 
-VPATH	=	srcs
+VPATH	=	./srcs/:\
+			./srcs/array/:\
+			./srcs/array/macro/:\
+			./srcs/list/:\
+			./srcs/memory/:\
+			./srcs/string/:\
+			./srcs/string/cast/:\
+			./srcs/string/macro/:
+
 SRCS	=	strtoi.c
 
 OBJS	=	$(addprefix $(BUILDIR), $(SRCS:.c=.o))
@@ -26,14 +34,14 @@ CFLAGS	=	-Wall -Wextra -Werror -O3 -march=native -MMD -MP -I$(HEADERS)
 
 all: $(NAME)
 
+$(BUILDIR):
+	mkdir -p $@
+
 $(NAME): $(OBJS) Makefile
 	ar -c -r $(NAME) -o $(OBJS)
 
-./build/%.o: %.c | $(BUILDIR)
+$(BUILDIR)%.o: %.c | $(BUILDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
-
-$(BUILDIR):
-	mkdir -p $(BUILDIR)
 
 -include $(DEPS)
 
