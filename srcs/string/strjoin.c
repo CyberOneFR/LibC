@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 18:27:59 by ethebaul          #+#    #+#             */
-/*   Updated: 2025/04/22 17:22:24 by ethebaul         ###   ########.fr       */
+/*   Updated: 2025/04/22 17:48:18 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	strjoin(t_array *tab, t_string *ret)
 	{
 		str = (t_string *)tab->content[i];
 		memcopy(str->content, ret->content[i], str->size * sizeof(char));
-		++i;
+		i += str->size;
 	}
 	return (0);
 }

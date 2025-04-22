@@ -6,14 +6,14 @@
 #    By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/20 17:15:05 by ethebaul          #+#    #+#              #
-#    Updated: 2025/04/21 14:47:55 by ethebaul         ###   ########.fr        #
+#    Updated: 2025/04/22 17:48:01 by ethebaul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 BUILDIR	=	./build/
 HEADERS	=	./headers/
 
-VPATH	=	./srcs/parsing/string/cast/
+VPATH	=	srcs
 SRCS	=	strtoi.c
 
 OBJS	=	$(addprefix $(BUILDIR), $(SRCS:.c=.o))
@@ -29,11 +29,11 @@ all: $(NAME)
 $(NAME): $(OBJS) Makefile
 	ar -c -r $(NAME) -o $(OBJS)
 
-$(BUILDIR):
-	mkdir -p $(BUILDIR)
-
 ./build/%.o: %.c | $(BUILDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
+
+$(BUILDIR):
+	mkdir -p $(BUILDIR)
 
 -include $(DEPS)
 
