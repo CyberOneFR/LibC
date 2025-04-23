@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 17:23:00 by ethebaul          #+#    #+#             */
-/*   Updated: 2025/04/23 00:13:13 by ethebaul         ###   ########.fr       */
+/*   Updated: 2025/04/23 05:37:22 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	str_int(t_string *str, int *ret)
 {
 	int		flag;
-	uint	i;
+	ulong	i;
 	int		res;
 	int		sign;
 

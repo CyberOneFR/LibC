@@ -6,16 +6,16 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 23:46:05 by ethebaul          #+#    #+#             */
-/*   Updated: 2025/04/23 01:18:33 by ethebaul         ###   ########.fr       */
+/*   Updated: 2025/04/23 05:49:31 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libc.h"
 #include <stdio.h>
 
-uint	str_len(char *str)
+ulong	str_len(char *str)
 {
-	uint	i;
+	ulong	i;
 
 	i = 0;
 	while (str[i])
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 {
 	t_string	str;
 	t_array		tab;
-	uint		i;
+	ulong		i;
 
 	if (argc < 2)
 		return (0);
@@ -49,6 +49,8 @@ int	main(int argc, char **argv)
 	}
 	if (str_join(&tab, &str))
 		return (1);
+	write(1, "joined str: ", 12);
 	write(1, str.content, str.size);
+	write(1, "\n", 1);
 	return (0);
 }
