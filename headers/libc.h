@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 17:03:44 by ethebaul          #+#    #+#             */
-/*   Updated: 2025/04/23 05:38:02 by ethebaul         ###   ########.fr       */
+/*   Updated: 2025/04/23 16:38:55 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int		smalloc(uint size, uint type, void **ret);
 int		scalloc(ulong size, ulong type, void **ret);
 //	string
 int		str_join(t_array *tab, t_string *ret);
+int		str_split(t_string *str, char sep, t_array *ret);
 //	string/macro
 ulong	str_size(void *str);
 //	string/cast

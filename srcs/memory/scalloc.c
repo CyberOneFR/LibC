@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 00:35:25 by ethebaul          #+#    #+#             */
-/*   Updated: 2025/04/23 00:59:44 by ethebaul         ###   ########.fr       */
+/*   Updated: 2025/04/23 16:35:31 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,8 @@
 
 int	scalloc(ulong size, ulong type, void **ret)
 {
-	*ret = malloc(size * type);
-	mem_zero(size, type, *ret);
-	if (!(*ret))
-	{
+	if (smalloc(size, type, ret))
 		return (1);
-	}
+	mem_zero(size, type, *ret);
 	return (0);
 }
