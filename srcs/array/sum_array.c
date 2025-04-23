@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 20:07:55 by ethebaul          #+#    #+#             */
-/*   Updated: 2025/04/23 05:48:27 by ethebaul         ###   ########.fr       */
+/*   Updated: 2025/04/23 17:53:47 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,13 @@ long	sum_array(t_array *array, ulong type, long (*f)(void *))
 	ulong	off;
 	ulong	i;
 
-	i = 0;
+	i = -1;
 	off = 0;
 	result = 0;
-	while (i < array->size)
+	while (++i < array->size)
 	{
 		result += (long)((*f)(array->content + off));
 		off += type;
-		++i;
 	}
 	return (result);
 }
