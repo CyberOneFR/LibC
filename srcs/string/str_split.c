@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strsize.c                                          :+:      :+:    :+:   */
+/*   str_split.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 20:26:01 by ethebaul          #+#    #+#             */
-/*   Updated: 2025/04/22 18:51:43 by ethebaul         ###   ########.fr       */
+/*   Created: 2025/04/21 18:28:02 by ethebaul          #+#    #+#             */
+/*   Updated: 2025/04/23 00:52:10 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libc.h"
 
-int	ft_strsize(void *str)
+int	str_split(t_string *str, char sep, t_array *ret)
 {
-	return (((t_string *)str)->size);
+	ulong	count;
+	ulong	i;
+
+	i = 0;
+	count = 0;
+	ret = NULL;
+	while (i < str->size)
+	{
+		if (str->content[i] != sep)
+			++count;
+		++i;
+	}
+	return (0);
 }

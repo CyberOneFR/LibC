@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arrsize.c                                          :+:      :+:    :+:   */
+/*   str_size.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 20:27:56 by ethebaul          #+#    #+#             */
-/*   Updated: 2025/04/22 18:53:46 by ethebaul         ###   ########.fr       */
+/*   Created: 2025/04/21 20:26:01 by ethebaul          #+#    #+#             */
+/*   Updated: 2025/04/23 00:38:01 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libc.h"
 
-int	ft_arrsize(void *array)
+uint	str_size(void *str)
 {
-	return (((t_array *)array)->size);
+	return (((t_string *)str)->size);
 }

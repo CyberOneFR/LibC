@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 17:03:44 by ethebaul          #+#    #+#             */
-/*   Updated: 2025/04/22 18:54:46 by ethebaul         ###   ########.fr       */
+/*   Updated: 2025/04/23 01:00:05 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 typedef struct s_array
 {
 	uint	size;
-	void	**content;
+	void	*content;
 }	t_array;
 
 typedef struct s_string
@@ -29,17 +29,20 @@ typedef struct s_string
 }	t_string;
 
 //	array
-int		ft_sum_array(t_array *array, int (*f)(void *));
+long	sum_array(t_array *array, ulong type, long (*f)(void *));
 //	array/macro
-int		ft_arrsize(void *array);
+uint	arr_size(void *array);
 //	memory
-void	ft_memcopy(void *src, void *dest, uint size);
+void	mem_copy(void *src, void *dest, uint size);
+void	mem_zero(ulong size, ulong type, void *ptr);
+int		smalloc(uint size, uint type, void **ret);
+int		scalloc(ulong size, ulong type, void **ret);
 //	string
-int		ft_strjoin(t_array *tab, t_string *ret);
+int		str_join(t_array *tab, t_string *ret);
 //	string/macro
-int		ft_strsize(void *str);
+uint	str_size(void *str);
 //	string/cast
-int		ft_strtoi(t_string *str, int *ret);
-int		ft_strtol(t_string *str, long *ret);
+int		str_int(t_string *str, int *ret);
+int		str_long(t_string *str, long *ret);
 
 #endif

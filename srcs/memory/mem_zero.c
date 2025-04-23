@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sum_array.c                                        :+:      :+:    :+:   */
+/*   mem_zero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 20:07:55 by ethebaul          #+#    #+#             */
-/*   Updated: 2025/04/22 18:51:58 by ethebaul         ###   ########.fr       */
+/*   Created: 2025/04/23 00:53:14 by ethebaul          #+#    #+#             */
+/*   Updated: 2025/04/23 00:59:29 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libc.h"
-#include <stdio.h>
 
-int	ft_sum_array(t_array *array, int (*f)(void *))
+void	mem_zero(ulong size, ulong type, void *ptr)
 {
-	int		result;
-	uint	i;
+	ulong	memory_size;
+	ulong	i;
 
 	i = 0;
-	while (i < array->size)
+	memory_size = size * type;
+	while (i < memory_size)
 	{
-		result += (*f)(array->content[i]);
-		++i;
+		if ((memory_size - i) >= sizeof(long))
+		{
+			*(long *)(ptr + i) = 0;
+			i += sizeof(long);
+		}
+		else
+		{
+			*(char *)(ptr + i) = 0;
+			i += sizeof(char);
+		}
 	}
-	return (result);
+	return ;
 }

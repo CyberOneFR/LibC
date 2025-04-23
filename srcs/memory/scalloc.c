@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   scalloc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 18:27:59 by ethebaul          #+#    #+#             */
-/*   Updated: 2025/04/22 23:40:59 by ethebaul         ###   ########.fr       */
+/*   Created: 2025/04/23 00:35:25 by ethebaul          #+#    #+#             */
+/*   Updated: 2025/04/23 00:59:44 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libc.h"
 
-int	ft_strjoin(t_array *tab, t_string *ret)
+int	scalloc(ulong size, ulong type, void **ret)
 {
-	t_string	*str;
-	uint		i;
-
-	ret->size = ft_sum_array(tab, ft_strsize);
-	ret->content = (char *) malloc(ret->size * sizeof(char));
-	if (!ret->content)
-		return (1);
-	i = 0;
-	while (i < ret->size)
+	*ret = malloc(size * type);
+	mem_zero(size, type, *ret);
+	if (!(*ret))
 	{
-		str = (t_string *)tab->content[i];
-		ft_memcopy(str->content, ret->content[i], str->size * sizeof(char));
-		i += str->size;
+		return (1);
 	}
 	return (0);
 }

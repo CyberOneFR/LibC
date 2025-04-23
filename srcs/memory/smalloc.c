@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memcopy.c                                          :+:      :+:    :+:   */
+/*   smalloc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/22 16:09:45 by ethebaul          #+#    #+#             */
-/*   Updated: 2025/04/22 18:51:54 by ethebaul         ###   ########.fr       */
+/*   Created: 2025/04/23 00:35:25 by ethebaul          #+#    #+#             */
+/*   Updated: 2025/04/23 00:58:24 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libc.h"
 
-void	ft_memcopy(void *src, void *dest, uint size)
+int	smalloc(uint size, uint type, void **ret)
 {
-	int	i;
-
-	i = 0;
-	while (i < size)
+	*ret = malloc(size * type);
+	if (!(*ret))
 	{
-		if ((size - i) >= sizeof(long))
-		{
-			*(long *)(dest + i) = *(long *)(src + i);
-			i += 8;
-		}
-		else
-		{
-			*(char *)(dest + i) = *(char *)(src + i);
-			i += 1;
-		}
+		return (1);
 	}
+	return (0);
 }
