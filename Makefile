@@ -5,79 +5,42 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/04/20 17:15:05 by ethebaul          #+#    #+#              #
-#    Updated: 2025/04/23 05:16:58 by ethebaul         ###   ########.fr        #
+#    Created: 2025/06/20 05:06:30 by ethebaul          #+#    #+#              #
+#    Updated: 2025/06/21 06:36:39 by ethebaul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-BUILDIR		=	./build/
-BUILDIR_DBG	=	./build_dbg/
-HEADERS		=	./headers/
+BUILD_DIR			=	./build/
+HEADERS_DIR			=	./headers/
+SRCS_DIR			=	./srcs/
 
-VPATH		=	./srcs/:\
-				./srcs/array/:\
-				./srcs/array/macro/:\
-				./srcs/list/:\
-				./srcs/memory/:\
-				./srcs/string/:\
-				./srcs/string/cast/:\
-				./srcs/string/macro/
+MKCONFIGURE			=	./configure.mk
+MKGENERATED			=	./generated.mk
+MKCOLOR				=	./color.mk
 
-SRCS		=	arr_size.c\
-				map_array.c\
-				sum_array.c\
-				mem_copy.c\
-				mem_zero.c\
-				smalloc.c\
-				scalloc.c\
-				str_int.c\
-				str_long.c\
-				str_size.c\
-				str_join.c\
-				str_split.c
+CC					=	cc
+CFLAGS				=	-Wall -Wextra -Werror -g3 -O3 -march=native
+LIBS				=	-lpthread
 
-SRCS_DBG	=	./srcs_dbg/debug.c
-
-DEPS		=	$(addprefix $(BUILDIR), $(SRCS:.c=.d))
-OBJS		=	$(addprefix $(BUILDIR), $(SRCS:.c=.o))
-DEPS_DBG	=	$(addprefix $(BUILDIR_DBG), $(SRCS:.c=.d))
-OBJS_DBG	=	$(addprefix $(BUILDIR_DBG), $(SRCS:.c=.o))
-
-NAME		=	libc.a
-DEBUG		=	debug
-
-CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror -O3 -march=native -I$(HEADERS)
-CFLAGS_DBG	=	-Wall -Wextra -Werror -g3 -I$(HEADERS)
+NAME				=	Libc.a
 
 all: $(NAME)
+	@echo -e $(GREEN)Successfully Built $(NAME)$(RESET)
 
-$(NAME): $(OBJS) Makefile
-	ar rcs $@ $(OBJS)
+-include $(MKCONFIGURE) $(MKGENERATED) $(MKCOLOR)
 
-$(DEBUG): $(OBJS_DBG) $(SRCS_DBG) Makefile
-	$(CC) $(CFLAGS_DBG) -MD -MP -MF $(BUILDIR_DBG)$@.d -o $@ $(OBJS_DBG) $(SRCS_DBG)
-
-$(BUILDIR)%.o: %.c | $(BUILDIR)
-	$(CC) $(CFLAGS) -MD -MP -o $@ -c $<
-
-$(BUILDIR_DBG)%.o: %.c | $(BUILDIR_DBG)
-	$(CC) $(CFLAGS_DBG) -MD -MP -o $@ -c $<
-
-$(BUILDIR):
-	mkdir -p $@
-
-$(BUILDIR_DBG):
-	mkdir -p $@
-
--include $(DEPS) $(DEPS_DBG)
+$(NAME): $(OBJS) $(LIBFT_ARCHIVE)
+	@ar -rcs -o $@ $(OBJS)
+	@echo -e $(BLUE)$(NAME)$(RESET) compiling: $@
 
 clean:
-	rm -rf $(BUILDIR) $(BUILDIR_DBG)
+	rm -rf $(BUILD_DIR)
 
 fclean: clean
-	rm -f $(NAME) $(DEBUG)
+	rm -f $(NAME)
 
 re: fclean all
+
+-include $(DEPS)
 
 .PHONY : all clean fclean re
